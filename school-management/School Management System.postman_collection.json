@@ -1,0 +1,585 @@
+{
+	"info": {
+		"_postman_id": "3ead5d67-209e-44bc-a483-1d52fa8f4b5c",
+		"name": "School Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32389072"
+	},
+	"item": [
+		{
+			"name": "User Service",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"rock@mail.com\",\r\n  \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refreshToken\": \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb3NoYW5AbWFpbCIsInR5cGUiOiJyZWZyZXNoIiwiaWF0IjoxNzI5MzYwMzA3LCJleHAiOjE3Mjk0NDY3MDd9.9-cjQ7obPoDsrlWEApmRKafnDSpr2fAZU_Hl8I5p_6mC1T9Eyrlm5FzvEtGSCazPYxPoHPki8ULN--U25n2yYw\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/token/refresh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"token",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Student",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2NrQG1haWwuY29tIiwidHlwZSI6ImFjY2VzcyIsInJvbGVzIjpbIlVfQURNSU4iXSwiaWF0IjoxNzI5NDQ1OTI4LCJleHAiOjE3Mjk0NDYyMjh9.gl4gqJE2Jh4PhKnwCldmWYJ9UVy5G3-nzqCL8C61KqsEfBbxCJS_-EOMJxaDYZeiObey5-j6_8qvdJsjtX4vSQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Razz\",\r\n  \"email\": \"razz@mail.com\",\r\n  \"password\": \"12345678\",\r\n  \"phone\": \"984321112\",\r\n  \"address\": \"Nepal\",\r\n  \"grade\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/register/student",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"register",
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Teacher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2NrQG1haWwuY29tIiwidHlwZSI6ImFjY2VzcyIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzI5NDQ2MjMyLCJleHAiOjE3Mjk0NDY1MzJ9.yisso7ihpgEd7mJ3pJ7o73EWWBfVxY6v0Z7jQ4Y3GR_suPSWSmsqCM4MoqW2L8g5A0DrSZIS1QwfmzwMaerkNQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Harry\",\r\n  \"email\": \"harry@mail.com\",\r\n  \"password\": \"12345678\",\r\n  \"phone\": \"984321112\",\r\n  \"address\": \"Noida\",\r\n  \"subject\": \"Java\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/register/teacher",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"register",
+								"teacher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2NrQG1haWwuY29tIiwidHlwZSI6ImFjY2VzcyIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzI5NDQ2MjMyLCJleHAiOjE3Mjk0NDY1MzJ9.yisso7ihpgEd7mJ3pJ7o73EWWBfVxY6v0Z7jQ4Y3GR_suPSWSmsqCM4MoqW2L8g5A0DrSZIS1QwfmzwMaerkNQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Jack\",\r\n  \"email\": \"jack@mail.com\",\r\n  \"password\": \"87654321\",\r\n  \"phone\": \"984321112\",\r\n  \"address\": \"Delhi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/register/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"register",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXp6QG1haWwuY29tIiwidHlwZSI6ImFjY2VzcyIsInJvbGVzIjpbIlJPTEVfU1RVREVOVCJdLCJpYXQiOjE3Mjk0NDY2ODMsImV4cCI6MTcyOTQ0Njk4M30.eg9a9fym6Z1kiRPVgd-lxbeMmDQBftMsS25VgkPX_kT1pGDs6yNJvxsEDnbfI_jz8iqqAfMkEUPs1im1byGx4Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXp6QG1haWwuY29tIiwidHlwZSI6ImFjY2VzcyIsInJvbGVzIjpbIlJPTEVfU1RVREVOVCJdLCJpYXQiOjE3Mjk0NDc1OTMsImV4cCI6MTcyOTQ0Nzg5M30.Fvb6TBm_fErUSCbX6c-SlR8DQAk2SYWo7mn1W-gww_4Nb9jB0v22oZfh_Ymo2Lg9ERSV4Z1RoAEyh88tsfBshg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/v1/users/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users by grade",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2NrQG1haWwuY29tIiwidHlwZSI6ImFjY2VzcyIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzI5NDQ3MTIwLCJleHAiOjE3Mjk0NDc0MjB9.fNKGgHKGMMX7nXmE0dtyxtjBwhWMdq8JNwjxRjCHKOl6Zp5TknBSvlRURbym0z1QjGl7MwPx5Hj1eX7KcBLkfA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/v1/users/grade/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"grade",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2NrQG1haWwuY29tIiwidHlwZSI6ImFjY2VzcyIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzI5NDQ2ODQ0LCJleHAiOjE3Mjk0NDcxNDR9.HdM345zlgYFVI91gk_cD_CGcAA3z_wdr_m9oRee5ZMKkyGJQUQsHZ6dMbeaNfKoSlzLfssixrRYmb-MskC_Oxg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Razz Shah\",\r\n  \"email\": \"razzshah@mail\",\r\n  \"password\": \"87654321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/users/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Copy",
+					"request": {
+						"method": "PATCH",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2NrQG1haWwuY29tIiwidHlwZSI6ImFjY2VzcyIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzI5NDQ2ODQ0LCJleHAiOjE3Mjk0NDcxNDR9.HdM345zlgYFVI91gk_cD_CGcAA3z_wdr_m9oRee5ZMKkyGJQUQsHZ6dMbeaNfKoSlzLfssixrRYmb-MskC_Oxg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/v1/users/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Assignment Service",
+			"item": [
+				{
+					"name": "Create assignment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoYXJyeUBtYWlsLmNvbSIsInR5cGUiOiJhY2Nlc3MiLCJyb2xlcyI6WyJST0xFX1RFQUNIRVIiXSwiaWF0IjoxNzI5NDQ4MDQ4LCJleHAiOjE3Mjk0NDgzNDh9.6eDZWXQ81X2ZnRJeYVoDlLPNc9uTfdEncZUWdg0cpokCetW4nsxqMqfg7lLsiVC3QmEzPmkwZPCDfEPr5l5ibA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Create a Java Spring boot api for user management\",\r\n  \"description\": \"This is a description of the task to be completed\",\r\n  \"grade\": 10,\r\n  \"startDate\": \"2024-10-24\",\r\n  \"endDate\": \"2024-10-28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/assignments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"assignments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all assignments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb3NoYW5AbWFpbCIsInR5cGUiOiJhY2Nlc3MiLCJyb2xlcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTcyOTQyNDE0MywiZXhwIjoxNzI5NDI0NDQzfQ.wtTaTN7lw9482jzJBoKdHL20eG2GEy0MAqwR7rvBURtLJUBS2HAaz48FFAKL6toJaVAsBQ0eyc2zGJiGCvruuw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Write an essay\",\r\n  \"description\": \"This is a description of the task to be completed\",\r\n  \"grade\": 10,\r\n  \"startDate\": \"2024-10-22\",\r\n  \"endDate\": \"2024-10-25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/assignments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"assignments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get assignment by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXp6QG1haWwuY29tIiwidHlwZSI6ImFjY2VzcyIsInJvbGVzIjpbIlJPTEVfU1RVREVOVCJdLCJpYXQiOjE3Mjk0NDc4NDUsImV4cCI6MTcyOTQ0ODE0NX0.6YcheK_s7fj2r4jwTHLFVFwgL6X6Nm18KKGL8Avg0s-olQO6F8VoXSvPFOjlr1tDkJA3R3euQ-dnDa762NQU3g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Write an essay\",\r\n  \"description\": \"This is a description of the task to be completed\",\r\n  \"grade\": 10,\r\n  \"startDate\": \"2024-10-22\",\r\n  \"endDate\": \"2024-10-25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/assignments/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"assignments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get assignment by grade",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoYXJyeUBtYWlsLmNvbSIsInR5cGUiOiJhY2Nlc3MiLCJyb2xlcyI6WyJST0xFX1RFQUNIRVIiXSwiaWF0IjoxNzI5NDQ4MDQ4LCJleHAiOjE3Mjk0NDgzNDh9.6eDZWXQ81X2ZnRJeYVoDlLPNc9uTfdEncZUWdg0cpokCetW4nsxqMqfg7lLsiVC3QmEzPmkwZPCDfEPr5l5ibA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Write an essay\",\r\n  \"description\": \"This is a description of the task to be completed\",\r\n  \"grade\": 10,\r\n  \"startDate\": \"2024-10-22\",\r\n  \"endDate\": \"2024-10-25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/assignments/grade/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"assignments",
+								"grade",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete assignment by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXp6QG1haWwuY29tIiwidHlwZSI6ImFjY2VzcyIsInJvbGVzIjpbIlJPTEVfU1RVREVOVCJdLCJpYXQiOjE3Mjk0NDc4NDUsImV4cCI6MTcyOTQ0ODE0NX0.6YcheK_s7fj2r4jwTHLFVFwgL6X6Nm18KKGL8Avg0s-olQO6F8VoXSvPFOjlr1tDkJA3R3euQ-dnDa762NQU3g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/v1/assignments/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"assignments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

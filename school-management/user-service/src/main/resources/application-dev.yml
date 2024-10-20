@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/userdb
+    username: ${DB_USER:genesis}
+    password: ${DB_PASS:genesis}
+
+  jpa:
+    show-sql: true
+
+  flyway:
+    enabled: true
+    locations:
+      - classpath:db/migration
+
+server:
+  port: 9091
+
+jwt:
+  secret: ${JWT_SECRET:2D4A614E645267556B58703273357638792F423F4428472B4B6250655368566D}
+  access:
+    expires: 300000
+  refresh:
+    expires: 86400000

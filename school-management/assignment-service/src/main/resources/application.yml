@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: assignment-service
+
+  profiles:
+    active:
+      - dev
