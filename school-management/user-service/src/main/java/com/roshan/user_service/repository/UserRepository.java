@@ -15,4 +15,6 @@ public interface UserRepository extends JpaRepository<User,Long> {
 
     @Query("SELECT u FROM User u WHERE u.grade = :grade AND u.role = 'ROLE_STUDENT' AND u.deleted = false")
     List<User> findByGrade(Integer grade);
+
+    boolean existsByEmail(String email);
 }

@@ -79,6 +79,10 @@ public class UserController {
                     .message("User updated successfully")
                     .data(userService.updateUser(id, userRequestDto)).build(), HttpStatus.OK);
         }
-        throw new AccessDeniedException("Access denied. You do not have permission to access this resource.");
+        return new ResponseEntity<>(ApiResponse.builder()
+                .success(false)
+                .code(403)
+                .message("Access denied. You do not have permission to access this resource.")
+                .build(), HttpStatus.FORBIDDEN);
     }
 }

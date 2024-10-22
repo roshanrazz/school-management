@@ -19,6 +19,7 @@ public class AuthController {
 
     private final AuthService authService;
     private final UserService userService;
+
     @PostMapping("/login")
     public ResponseEntity<ApiResponse> login(@Valid @RequestBody LoginDto loginDto) {
         try {
@@ -37,6 +38,7 @@ public class AuthController {
         }
     }
 
+
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/register/admin")
     public ResponseEntity<ApiResponse> createAdmin(@Valid @RequestBody UserRequestDto userRequestDto) {
@@ -47,6 +49,7 @@ public class AuthController {
                 .data(userService.createAdmin(userRequestDto))
                 .build(), HttpStatus.CREATED);
     }
+
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/register/teacher")

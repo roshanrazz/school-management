@@ -3,6 +3,7 @@ package com.roshan.user_service.service.impl;
 import com.roshan.user_service.dto.*;
 import com.roshan.user_service.entity.User;
 import com.roshan.user_service.entity.UserRole;
+import com.roshan.user_service.exception.EmailAlreadyExistsException;
 import com.roshan.user_service.exception.UserNotFoundException;
 import com.roshan.user_service.repository.UserRepository;
 import com.roshan.user_service.service.AssignmentFeignClient;
@@ -33,6 +34,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponseDto createAdmin(UserRequestDto userRequestDto) {
+        checkUniqueEmail(userRequestDto.getEmail());
         User admin = modelMapper.map(userRequestDto, User.class);
         admin.setPassword(passwordEncoder.encode(admin.getPassword()));
         admin.setRole(UserRole.ROLE_ADMIN);
@@ -41,14 +43,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponseDto createTeacher(TeacherRequestDto teacherRequestDto) {
+        checkUniqueEmail(teacherRequestDto.getEmail());
         User teacher = modelMapper.map(teacherRequestDto, User.class);
         teacher.setPassword(passwordEncoder.encode(teacher.getPassword()));
         teacher.setRole(UserRole.ROLE_TEACHER);
+
         return modelMapper.map(userRepository.save(teacher), UserResponseDto.class);
     }
 
     @Override
     public UserResponseDto createStudent(StudentRequestDto studentRequestDto) {
+        checkUniqueEmail(studentRequestDto.getEmail());
         User student = modelMapper.map(studentRequestDto, User.class);
         student.setPassword(passwordEncoder.encode(student.getPassword()));
         student.setRole(UserRole.ROLE_STUDENT);
@@ -64,7 +69,6 @@ public class UserServiceImpl implements UserService {
         }
         return userResponse;
     }
-
 
     @Override
     public List<UserResponseDto> getAllUsers() {
@@ -115,8 +119,7 @@ public class UserServiceImpl implements UserService {
 
     private User findUserById(Long id) {
         User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User not found"));
-        if (user.isDeleted())
-            throw new UserNotFoundException("User not found");
+        if (user.isDeleted()) throw new UserNotFoundException("User not found");
         return user;
     }
 
@@ -128,6 +131,11 @@ public class UserServiceImpl implements UserService {
             return assignments;
         } else {
             return List.of();
+        }
+    }
+    private void checkUniqueEmail(String email) {
+        if (userRepository.existsByEmail(email)) {
+            throw new EmailAlreadyExistsException("Email already exists");
         }
     }
 }

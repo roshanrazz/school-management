@@ -23,6 +23,16 @@ public class GlobalExceptionHandler {
                 .message(ex.getMessage())
                 .build(), HttpStatus.NOT_FOUND);
     }
+    @ExceptionHandler(EmailAlreadyExistsException.class)
+    public ResponseEntity<ApiResponse> handleUserExistsException(EmailAlreadyExistsException ex){
+        return new ResponseEntity<>(ApiResponse.builder()
+                .success(false)
+                .message(ex.getMessage())
+                .code(400)
+                .build()
+                ,HttpStatus.CONFLICT
+        );
+    }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiResponse> handleValidationExceptions(MethodArgumentNotValidException ex) {

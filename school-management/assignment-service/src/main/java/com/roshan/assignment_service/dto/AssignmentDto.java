@@ -1,9 +1,6 @@
 package com.roshan.assignment_service.dto;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
@@ -19,6 +16,7 @@ public class AssignmentDto {
 
     @Min(value = 1, message = "Grade must be greater than or equal to 1")
     @Max(value = 12, message = "Grade must be less than or equal to 12")
+    @NotNull(message = "Grade is required")
     private Integer grade;
 
     private LocalDate startDate;

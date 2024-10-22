@@ -23,7 +23,9 @@ public class Assignment {
     private String title;
     private String description;
 
+    @Column(nullable = false)
     private String assignedBy;
+    @Column(nullable = false)
     private Integer grade;
 
     private LocalDate startDate;
